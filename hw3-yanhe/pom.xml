@@ -3,7 +3,7 @@
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>edu.cmu.lti.11791.f14.hw3</groupId>
 	<artifactId>hw3-yanhe</artifactId>
-	<version>0.0.1-SNAPSHOT</version>
+	<version>0.0.2-SNAPSHOT</version>
 
 	<repositories>
 		<repository>
@@ -95,7 +95,7 @@
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-release-plugin</artifactId>
-				<version>2.2.1</version>
+				<version>2.4.2</version>
 				<executions>
 					<execution>
 						<id>default</id>
@@ -110,4 +110,9 @@
 			</plugin>
 		</plugins>
 	</build>
+	<scm>
+		<connection>scm:git:git@github.com:heyan4869/hw3-yanhe</connection>
+		<developerConnection>scm:git:git@github.com:heyan4869/hw3-yanhe</developerConnection>
+	  <tag>HEAD</tag>
+  </scm>
 </project>

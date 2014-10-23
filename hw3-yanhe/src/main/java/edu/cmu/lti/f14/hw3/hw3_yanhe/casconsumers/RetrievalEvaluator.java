@@ -29,7 +29,13 @@ import edu.cmu.lti.f14.hw3.hw3_yanhe.typesystems.Document;
 import edu.cmu.lti.f14.hw3.hw3_yanhe.typesystems.Token;
 import edu.cmu.lti.f14.hw3.hw3_yanhe.utils.Utils;
 
-
+/**
+ * RetrievalEvaluator creates sparse term vectors. It could construct
+ * a vector of tokens and update the tokenList in the CAS. 
+ * 
+ * @author yanhe
+ * 
+ */
 public class RetrievalEvaluator extends CasConsumer_ImplBase {
 
 	//QID list
@@ -51,7 +57,13 @@ public class RetrievalEvaluator extends CasConsumer_ImplBase {
 
 	DecimalFormat ft = new DecimalFormat("#0.0000");
 
-		
+	/**
+	 * initialize create the data structure that will be use in the
+	 * processCas function.
+	 * 
+	 * @author yanhe
+	 * 
+	 */
 	public void initialize() throws ResourceInitializationException {
 
 		QIDList = new LinkedHashSet<Integer>();
@@ -66,8 +78,9 @@ public class RetrievalEvaluator extends CasConsumer_ImplBase {
 	}
 
 	/**
-	 * TODO :: 1. construct the global word dictionary 
-	 * 2. keep the word frequency for each sentence
+	 * processCas construct the global word dictionary and keep the
+	 *  word frequency for each sentence
+	 * 
 	 */
 	@Override
 	public void processCas(CAS aCas) throws ResourceProcessException {
@@ -116,8 +129,8 @@ public class RetrievalEvaluator extends CasConsumer_ImplBase {
 	}
 
 	/**
-	 * TODO 1. Compute Cosine Similarity and rank the retrieved sentences 
-	 * 2. Compute the MRR metric
+	 * collectionProcessComplete compute Cosine Similarity and rank the 
+	 * retrieved sentences and compute the MRR metric.
 	 */
 	@Override
 	public void collectionProcessComplete(ProcessTrace arg0)
@@ -191,7 +204,7 @@ public class RetrievalEvaluator extends CasConsumer_ImplBase {
 	
 	/**
 	 * Write the output in standard format into file.
-	 * @throws IOException
+	 * 
 	 */
 	public void write() throws IOException{
 		File out = new File("report.txt");
@@ -212,12 +225,10 @@ public class RetrievalEvaluator extends CasConsumer_ImplBase {
 	}
 	/**
 	 * Compute cosine similarity of two vectors.
-	 * First compute then length(magnitude) of the two vectors, which presented in maps.
+	 * At first compute then length(magnitude) of the two vectors
 	 * Then compute the dot product of the two vectors.
-	 * Finally compute the cosine similarity.
-	 * @param queryVector
-	 * @param docVector
-	 * @return cosine_similarity
+	 * At last compute the cosine similarity.
+	 * 
 	 */
 	private double computeCosineSimilarity(Map<String, Integer> queryVector,
 			Map<String, Integer> docVector) {
@@ -273,9 +284,7 @@ public class RetrievalEvaluator extends CasConsumer_ImplBase {
 	/**
 	 * Compute jaccard similarity of two vectors
 	 * Compute the intersection and union set of two vectors to get jaccard Similarity.
-	 * @param queryVector
-	 * @param docVector
-	 * @return jaccardSimilarity 
+	 * 
 	 */
 	private double jaccardSimilarity(Map<String, Integer> queryVector,
 			Map<String, Integer> docVector){

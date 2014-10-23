@@ -15,6 +15,13 @@ import edu.cmu.lti.f14.hw3.hw3_yanhe.typesystems.Document;
 import edu.cmu.lti.f14.hw3.hw3_yanhe.typesystems.Token;
 import edu.cmu.lti.f14.hw3.hw3_yanhe.utils.Utils;
 
+/**
+ * Document Vector Annotator is to creates sparse term vectors. It 
+ * construct a vector of tokens and update the tokenList in the CAS
+ * 
+ * @author yanhe
+ * 
+ */
 public class DocumentVectorAnnotator extends JCasAnnotator_ImplBase {
 
 	@Override
@@ -50,6 +57,13 @@ public class DocumentVectorAnnotator extends JCasAnnotator_ImplBase {
 	 * @param doc
 	 */
 
+	/**
+	 * createTermFreqVector calculate the frequency of each vector and 
+	 * save the information in doc.
+	 * 
+	 * @author yanhe
+	 * 
+	 */
 	private void createTermFreqVector(JCas jcas, Document doc) {
 
 		String docText = doc.getText();
