@@ -147,11 +147,7 @@ public class RetrievalEvaluator extends CasConsumer_ImplBase {
 			//for rel=1
 			Map<String, Integer> doc1 = QIDdocu1.get(qid);
 			QIDscore1.put(qid, computeCosineSimilarity(query, doc1));	
-			//QIDscore1.put(qid, jaccardSimilarity(query, doc1));	
-			//QIDscore1.put(qid, diceSimilarity(query, doc1));
-			//QIDscore1.put(qid, tfidfSimilarity(query, doc1));
 			
-			//for rel=0
 			ArrayList<Map<String, Integer>> doc0list = QIDdocu0.get(qid);
 			Iterator iter = doc0list.iterator();
 			while(iter.hasNext()){
@@ -160,9 +156,7 @@ public class RetrievalEvaluator extends CasConsumer_ImplBase {
 					QIDscore0.put(qid, new ArrayList<Double>());
 				}
 				QIDscore0.get(qid).add(computeCosineSimilarity(query, doc0));
-				//QIDscore0.get(qid).add(jaccardSimilarity(query, doc0));
-				//QIDscore0.get(qid).add(diceSimilarity(query,doc0));
-				//QIDscore0.get(qid).add(tfidfSimilarity(query, doc0));
+				
 			}	
 		}	
 		
@@ -207,7 +201,7 @@ public class RetrievalEvaluator extends CasConsumer_ImplBase {
 	 * 
 	 */
 	public void write() throws IOException{
-		File out = new File("report.txt");
+		File out = new File("reportForDiceSimilarity.txt.txt");
 		BufferedWriter buf = null;
 		try {
 			buf = new BufferedWriter(new FileWriter(out));
